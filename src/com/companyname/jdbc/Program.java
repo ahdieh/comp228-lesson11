@@ -1,5 +1,6 @@
 package com.companyname.jdbc;
 
+import java.security.PrivilegedExceptionAction;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,8 +18,9 @@ public class Program {
 		
 		try(
 				Connection connection = DBConfig.getConnection();
-				Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-				ResultSet resultSet = statement.executeQuery(QueryString)
+				//Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+				PreparedStatement statement = connection.prepareStatement(QueryString);
+				ResultSet resultSet = statement.executeQuery();
 				)
 		{
 
