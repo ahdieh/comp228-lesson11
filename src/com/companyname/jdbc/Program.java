@@ -10,7 +10,7 @@ import java.text.ParseException;
 import com.companyname.jdbc.beans.Movie;
 
 public class Program {
-	private static String QueryString = "Select * from movie_list"; 
+	private static String QueryString = "Select * from movie_list limit 5,5"; 
 
 	public static void main(String[] args){
 		
